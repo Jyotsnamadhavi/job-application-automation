@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Job Automation AI",
+  "version": "1.0.0",
+  "description": "AI-powered job application automation using LangChain multi-agent system",
+  
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  
+  "host_permissions": [
+    "https://jobs.lever.co/*",
+    "https://boards.greenhouse.io/*",
+    "https://*.workday.com/*",
+    "https://*.linkedin.com/jobs/*",
+    "http://localhost:8080/*"
+  ],
+  
+  "action": {
+    "default_popup": "frontend/popup.html",
+    "default_title": "Job Automation AI"
+  },
+  
+  "background": {
+    "service_worker": "dist/background.js"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": [
+        "https://jobs.lever.co/*",
+        "https://boards.greenhouse.io/*",
+        "https://*.workday.com/*",
+        "https://*.linkedin.com/jobs/*",
+        "http://localhost:8080/*"
+      ],
+      "js": ["dist/content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  
+  "web_accessible_resources": [
+    {
+      "resources": ["dist/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+} 
