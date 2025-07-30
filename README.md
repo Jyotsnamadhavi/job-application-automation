@@ -1,53 +1,28 @@
-# 🎯 Job Automation AI
+# Job Automation AI
 
 An AI-powered browser extension for automated job applications using a modular multi-agent system.
 
-## 🚀 Features
+## Overview
 
-### Phase 1: Foundation & Basic Extension ✅
-- **User Profile Management**: Store and manage your professional information
-- **Basic Form Detection**: Automatically detect job application forms
-- **Smart Auto-Fill**: Fill forms with your profile data
-- **Application Tracking**: Track all your job applications
-- **Settings Management**: Configure extension behavior
+Job Automation AI streamlines the job application process by automatically detecting and filling application forms across multiple platforms. Built with modern web technologies and AI capabilities, it helps job seekers save time while maintaining accuracy and professionalism.
+
+## Features
+
+### Core Functionality
+- **User Profile Management**: Store and manage professional information securely
+- **Smart Form Detection**: Automatically identify job application forms
+- **Intelligent Auto-Fill**: Fill forms with profile data using AI-powered field mapping
+- **Application Tracking**: Monitor and track all job applications
+- **Settings Management**: Configure extension behavior and preferences
 - **Local Storage**: All data stored securely in your browser
 
-### Phase 2: Form Detection Agent 🧭 (Coming Soon)
-- **LangChain Integration**: AI-powered field mapping
-- **Semantic Understanding**: Understand form fields contextually
-- **Multi-Platform Support**: Enhanced support for Lever, Greenhouse, Workday, LinkedIn
+### Supported Platforms
+- Lever (jobs.lever.co)
+- Greenhouse (boards.greenhouse.io)
+- Workday (workday.com)
+- LinkedIn Jobs (linkedin.com/jobs)
 
-### Phase 3: Filling Agent ✍️ (Coming Soon)
-- **Intelligent Filling**: AI decides what data to enter
-- **Multi-Input Support**: Handle radio buttons, checkboxes, dropdowns
-- **Error Handling**: Robust error recovery
-
-### Phase 4: Advanced Features 🔮 (Future)
-- **Cover Letter Generation**: AI-generated custom cover letters
-- **Job Scraping**: Automatically find and apply to relevant jobs
-- **Analytics Dashboard**: Visual application progress tracking
-
-## 🏗️ Architecture
-
-```
-job-automation-ai/
-├── frontend/                 # Extension UI components
-│   ├── popup.html           # Main extension popup
-│   ├── popup.js             # Popup logic
-│   ├── content.js           # Content script for job sites
-│   └── welcome.html         # Welcome page
-├── backend/                 # Extension logic
-│   ├── background.js        # Service worker
-│   ├── agents/              # AI agents (Phase 2+)
-│   ├── services/            # Business logic
-│   └── models/              # Data models
-├── shared/                  # Shared utilities
-│   ├── constants.js         # Shared constants
-│   └── utils.js             # Utility functions
-└── test-page.html           # Development test page
-```
-
-## 🛠️ Installation
+## Installation
 
 ### Prerequisites
 - Google Chrome browser
@@ -57,8 +32,8 @@ job-automation-ai/
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd job-automation-ai
+   git clone https://github.com/Jyotsnamadhavi/job-application-automation.git
+   cd job-application-automation
    ```
 
 2. **Install dependencies**
@@ -66,68 +41,55 @@ job-automation-ai/
    npm install
    ```
 
-3. **Load the extension in Chrome**
-   - Open Chrome and go to `chrome://extensions/`
-   - Enable "Developer mode" (top right toggle)
+3. **Build the extension**
+   ```bash
+   npm run build
+   ```
+
+4. **Load the extension in Chrome**
+   - Open Chrome and navigate to `chrome://extensions/`
+   - Enable "Developer mode" (toggle in top right)
    - Click "Load unpacked"
-   - Select the `job-automation-ai` folder
+   - Select the project directory
 
-4. **Set up your profile**
+5. **Configure your profile**
    - Click the extension icon in your browser toolbar
-   - Fill in your professional information in the Profile tab
-   - Save your profile
+   - Complete your professional profile in the Profile tab
+   - Save your information
 
-5. **Configure settings**
-   - Go to the Settings tab
-   - Enable "Auto-fill forms on job sites"
-   - Enable "Track application history"
+## Usage
 
-## 🎯 Usage
+### Basic Workflow
 
-### Basic Usage
+1. **Visit a job application page** on any supported platform
+2. **Activate the extension** by clicking the toolbar icon
+3. **Review and submit** the auto-filled application
+4. **Track your applications** through the Applications tab
 
-1. **Visit a job application page** on supported platforms:
-   - Lever (jobs.lever.co)
-   - Greenhouse (boards.greenhouse.io)
-   - Workday (workday.com)
-   - LinkedIn Jobs (linkedin.com/jobs)
+### Configuration
 
-2. **Auto-fill the form**:
-   - Click the extension icon in your browser toolbar
-   - The extension will automatically detect and fill the form
-   - Review and submit the application
+- **Auto-fill Settings**: Enable/disable automatic form filling
+- **Application Tracking**: Choose what data to track
+- **Privacy Controls**: Manage data storage preferences
 
-3. **Track your applications**:
-   - View all applications in the Applications tab
-   - Monitor application status and progress
-
-### Supported Job Sites
-
-| Platform | URL | Status |
-|----------|-----|--------|
-| Lever | jobs.lever.co | ✅ Supported |
-| Greenhouse | boards.greenhouse.io | ✅ Supported |
-| Workday | workday.com | ✅ Supported |
-| LinkedIn | linkedin.com/jobs | ✅ Supported |
-
-## 🔧 Development
+## Development
 
 ### Project Structure
 
 ```
-├── manifest.json           # Extension manifest
+├── manifest.json           # Extension configuration
 ├── package.json            # Dependencies and scripts
-├── frontend/               # Frontend components
-│   ├── popup.html         # Extension popup UI
+├── frontend/               # UI components
+│   ├── popup.html         # Extension popup
 │   ├── popup.js           # Popup functionality
 │   ├── content.js         # Content script
 │   └── welcome.html       # Welcome page
-├── backend/               # Backend logic
+├── backend/               # Core logic
 │   └── background.js      # Service worker
-├── shared/                # Shared utilities
-│   ├── constants.js       # Constants and enums
+├── shared/                # Utilities
+│   ├── constants.js       # Shared constants
 │   └── utils.js           # Utility functions
-└── test-page.html         # Development test page
+└── test-page.html         # Development testing
 ```
 
 ### Development Commands
@@ -145,78 +107,77 @@ npm run dev
 # Run tests
 npm test
 
-# Lint code
+# Code quality
 npm run lint
-
-# Format code
 npm run format
 ```
 
 ### Testing
 
-1. **Load the extension** in Chrome developer mode
-2. **Open test-page.html** in your browser
-3. **Test auto-fill functionality** using the test controls
-4. **Check browser console** for logs and debugging info
+1. Load the extension in Chrome developer mode
+2. Open `test-page.html` for testing
+3. Use browser console for debugging
 
-## 🔒 Privacy & Security
+## Architecture
 
-- **Local Storage**: All data is stored locally in your browser
-- **No External Servers**: No data is sent to external servers (Phase 1)
-- **User Control**: You control what data is stored and used
-- **Transparent**: Open source code for full transparency
+The extension uses a modular architecture with clear separation of concerns:
 
-## 🚧 Roadmap
+- **Frontend**: User interface and content scripts
+- **Backend**: Service worker for background processing
+- **Shared**: Common utilities and constants
+- **AI Integration**: LangChain-based intelligent form processing
 
-### Phase 1: Foundation ✅
-- [x] Basic extension setup
-- [x] User profile management
-- [x] Form detection and auto-fill
-- [x] Application tracking
-- [x] Settings management
+## Privacy & Security
 
-### Phase 2: AI Integration 🧭
-- [ ] LangChain agent setup
-- [ ] Form detection agent
-- [ ] Semantic field mapping
-- [ ] Enhanced platform support
+- **Local Storage**: All data stored locally in your browser
+- **No External Servers**: No data transmitted to external servers
+- **User Control**: Complete control over stored data
+- **Transparent**: Open source for full transparency
 
-### Phase 3: Advanced Features ✍️
-- [ ] Intelligent filling agent
-- [ ] Multi-input type support
-- [ ] Error handling and recovery
-- [ ] Performance optimization
+## Roadmap
 
-### Phase 4: Advanced AI 🔮
-- [ ] Cover letter generation
-- [ ] Job scraping and matching
-- [ ] Analytics dashboard
-- [ ] Multi-language support
+### Phase 1: Foundation (Complete)
+- Basic extension setup and core functionality
+- User profile management and form auto-fill
+- Application tracking and settings management
 
-## 🤝 Contributing
+### Phase 2: AI Integration (In Progress)
+- LangChain agent implementation
+- Enhanced form detection and field mapping
+- Improved platform support
+
+### Phase 3: Advanced Features (Planned)
+- Intelligent form filling with error handling
+- Multi-input type support
+- Performance optimization
+
+### Phase 4: Advanced AI (Future)
+- AI-generated cover letters
+- Job scraping and matching
+- Analytics dashboard
+
+## Contributing
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+2. Create a feature branch (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -m 'Add new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
 5. Open a Pull Request
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🆘 Support
+## Support
 
 - **Issues**: Report bugs and feature requests on GitHub
-- **Documentation**: Check the [docs](docs/) folder for detailed guides
-- **Community**: Join our discussions for help and ideas
+- **Documentation**: Check the project structure for implementation details
+- **Community**: Join discussions for help and collaboration
 
-## 🙏 Acknowledgments
+## Disclaimer
 
-- Built with modern web technologies
-- Inspired by the need for efficient job application processes
-- Thanks to the open-source community for tools and libraries
+This tool is designed to assist with job applications. Always review auto-filled information before submitting applications to ensure accuracy and appropriateness for each position.
 
 ---
 
-**Note**: This is a development project. Use responsibly and always review auto-filled information before submitting job applications. 
+*Built with modern web technologies and AI capabilities to streamline the job application process.* 
